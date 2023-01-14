@@ -2,8 +2,9 @@
   "name": "express-template",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "scripts": {
+    "build": "tsc",
+    "start": "ts-node -r ./src/index.ts",
     "lint": "eslint . --ext .ts",
     "prettier-format": "prettier --config .prettierrc 'src/**/*.ts' --write"
   },
@@ -22,5 +23,8 @@
     "ts-lint": "^4.5.1",
     "ts-node": "^10.9.1",
     "typescript": "^4.9.4"
+  },
+  "dependencies": {
+    "express-zod-api": "^8.9.0"
   }
 }

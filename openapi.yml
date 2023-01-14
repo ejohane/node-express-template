@@ -1,0 +1,76 @@
+openapi: 3.0.0
+info:
+  title: Example API
+  version: 1.2.3
+paths:
+  /v1/hello:
+    get:
+      responses:
+        "200":
+          description: GET /v1/hello Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    enum:
+                      - success
+                  data:
+                    type: object
+                    properties:
+                      greetings:
+                        type: string
+                    required:
+                      - greetings
+                required:
+                  - status
+                  - data
+        "400":
+          description: GET /v1/hello Error response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    enum:
+                      - error
+                  error:
+                    type: object
+                    properties:
+                      message:
+                        type: string
+                    required:
+                      - message
+                required:
+                  - status
+                  - error
+              examples:
+                example1:
+                  value:
+                    status: error
+                    error:
+                      message: Sample error message
+      parameters:
+        - name: name
+          in: query
+          required: true
+          schema:
+            description: GET /v1/hello parameter
+            type: string
+components:
+  schemas: {}
+  responses: {}
+  parameters: {}
+  examples: {}
+  requestBodies: {}
+  headers: {}
+  securitySchemes: {}
+  links: {}
+  callbacks: {}
+tags: []
+servers:
+  - url: https://example.com
